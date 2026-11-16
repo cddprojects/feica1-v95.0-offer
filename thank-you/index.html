@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Details Received | Talent Fluxo</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #006e47;
+      --green-m: #00915a;
+      --green-lt:#e4f4ec;
+      --gold:    #b8860b;
+      --gold-lt: #fdf6e0;
+      --bg:      #f7f4ef;
+      --surface: #ffffff;
+      --border:  #ddd6c8;
+      --ink:     #17192c;
+      --ink2:    #474f6e;
+      --muted:   #8a909d;
+      --radius:  16px;
+      --radius-lg: 24px;
+      --font-body:    'Inter', sans-serif;
+      --font-display: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+
+    .container {
+      width: min(100%, 680px);
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    /* Nav */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding-block: 16px;
+    }
+    .nav-inner {
+      width: min(100%, 1100px);
+      margin-inline: auto;
+      padding-inline: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
+    .logo span { color: var(--green); }
+
+    /* Main */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-block: 64px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .icon-wrap {
+      width: 72px; height: 72px;
+      background: var(--green-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2rem;
+    }
+
+    .card h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .card h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .card .sub {
+      font-size: 1rem;
+      color: var(--ink2);
+      max-width: 420px;
+      margin-inline: auto;
+      margin-bottom: 36px;
+      line-height: 1.72;
+    }
+
+    .what-next {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .what-next h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .step-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .step-row:last-child { margin-bottom: 0; }
+    .step-dot {
+      width: 26px; height: 26px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text strong { font-size: 0.9rem; color: var(--ink); display: block; margin-bottom: 2px; }
+    .step-text span   { font-size: 0.83rem; color: var(--muted); }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink2);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      display: inline-block;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
+
+    .note {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-block: 24px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--surface);
+    }
+    footer strong { color: var(--ink); }
+
+    @media (max-width: 480px) {
+      .card { padding: 36px 22px; }
+      .btn-group { flex-direction: column; align-items: stretch; }
+      .btn-ghost { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Talent <span>Fluxo</span></div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="card">
+      <div class="icon-wrap">✅</div>
+
+      <h1>Details Received.<br />We'll Be in <em>Touch Soon.</em></h1>
+
+      <p class="sub">
+        Thank you for your interest in Talent Fluxo. Our team will review your profile and reach out to you via WhatsApp within 24 hours if you're a good fit.
+      </p>
+
+      <div class="what-next">
+        <h3>What happens next</h3>
+        <div class="step-row">
+          <div class="step-dot">1</div>
+          <div class="step-text">
+            <strong>Profile review</strong>
+            <span>Our team reviews the info you sent.</span>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-dot">2</div>
+          <div class="step-text">
+            <strong>We reach out if you're a fit</strong>
+            <span>Suitable candidates will receive a WhatsApp message within 24 hours.</span>
+          </div>
+        </div>
+        <div class="step-row">
+          <div class="step-dot">3</div>
+          <div class="step-text">
+            <strong>Get started and earn</strong>
+            <span>Once you start, your first Interac e-Transfer arrives within 7 days.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="../index.html" class="btn-ghost">← Back to home</a>
+      </div>
+
+      <p class="note">🔒 Your info is kept private. We do not share or sell it.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Talent Fluxo</strong> · For people working in Canada · <a href="../privacy/">Privacy Policy</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
